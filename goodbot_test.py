@@ -11,5 +11,10 @@ p.setRealTimeSimulation(1)
 
 robot = Goodbot("goodbot.urdf", [0, 0, 1])
 
-robot.goForward(20, 100)
-robot.turnRight()
+robot.go_forward(20, 100)
+robot.turn_right()
+
+p.setRealTimeSimulation(1)
+
+while 1:
+    pass
