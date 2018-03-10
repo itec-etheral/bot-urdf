@@ -23,6 +23,9 @@ class Goodbot(URDFObject):
 	def turn_left(self):
  		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=45) #turns the front wheels by +45 degrees
 
+	def turn_ahead(self):
+		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=0) #turns the front wheels by +45 degrees
+
 	@staticmethod
 	def number_of_sensosr() -> int:
 		return 6
