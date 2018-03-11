@@ -7,7 +7,7 @@ class Goodbot(URDFObject):
 
 	def __init__(self, bot_path: str, spawn_coords: list): #, road): #bot_path is a string; coords is a list 3 of floats (spawn coordinates)
 		""" We instantiate the bot with the path to its urdf + a road object which the sensors will read off of """
-		super(Goodbot, self).__init__(bot_path, spawn_coords) # loads the bot in as a self._obj
+		super(Goodbot, self).__init__(bot_path, spawn_coords, scale_factor=0.5) # loads the bot in as a self._obj
 		p.setJointMotorControl2(self._obj, 9, controlMode = p.VELOCITY_CONTROL, targetVelocity = 0, force = 0) #unblocks the front wheels
 		p.setJointMotorControl2(self._obj, 10, controlMode = p.VELOCITY_CONTROL, targetVelocity = 0, force = 0)
 		self._sensors = self._attach_sensors_to_robot()

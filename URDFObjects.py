@@ -7,10 +7,10 @@ class URDFObject(object):
     usually inherited by other object creator classes
     """
 
-    def __init__(self, urdf_path, sensor_pos_vector3): 
+    def __init__(self, urdf_path, sensor_pos_vector3, scale_factor=1):
         # p.setAdditionalSearchPath(pybullet_data.getDataPath())
         if len(sensor_pos_vector3) == 3:
-            self._obj = p.loadURDF(urdf_path, sensor_pos_vector3)
+            self._obj = p.loadURDF(urdf_path, sensor_pos_vector3, globalScaling=scale_factor)
         else:
             raise ValueError("use a 3 length sensor_pos_vector3 list as argument")
 
