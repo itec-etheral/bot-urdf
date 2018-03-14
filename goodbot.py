@@ -18,10 +18,10 @@ class Goodbot(URDFObject):
 		p.setJointMotorControl2(self._obj, 1, controlMode = p.VELOCITY_CONTROL, targetVelocity = -vel, force = force)
 	
 	def turn_right(self):
- 		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=-45) #turns the front wheels by -45 degrees
+ 		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=-0.785) #turns the front wheels by -45 degrees
 
 	def turn_left(self):
- 		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=45) #turns the front wheels by +45 degrees
+ 		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=0.785) #turns the front wheels by +45 degrees
 
 	def turn_ahead(self):
 		p.setJointMotorControl2(self._obj, 8, p.POSITION_CONTROL, targetPosition=0) #turns the front wheels by +45 degrees
