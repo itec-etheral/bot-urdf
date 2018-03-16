@@ -1,0 +1,293 @@
+<?xml version="1.0"?>
+<!-- created with Phobos 0.7 -->
+  <robot name="finalbot">
+
+    <link name="link_Body">
+      <inertial>
+        <origin xyz="0.94978 -0.55 0" rpy="0 0 0"/>
+        <mass value="0.1"/>
+        <inertia ixx="0.10342" ixy="0" ixz="0" iyy="0.04167" iyz="0" izz="0.14242"/>
+      </inertial>
+      <visual name="visual_Body">
+        <origin xyz="0.94978 -0.55 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="2.2 3.5 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Body">
+        <origin xyz="0.94978 -0.55 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="2.2 3.5 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_FWheel">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 -1.5708 0"/>
+        <mass value="0.02"/>
+        <inertia ixx="0.0005" ixy="0" ixz="0" iyy="0.0005" iyz="0" izz="0.0005"/>
+      </inertial>
+      <visual name="visual_FWheel">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="0.25"/>
+        </geometry>
+      </visual>
+      <collision name="collision_FWheel">
+        <origin xyz="0 0 0" rpy="0 -1.5708 0"/>
+        <geometry>
+          <sphere radius="0.25"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_LWheel">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.04"/>
+        <inertia ixx="0.00853" ixy="0" ixz="0" iyy="0.00853" iyz="0" izz="0.0128"/>
+      </inertial>
+      <visual name="visual_LWheel">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.8" length="0.8"/>
+        </geometry>
+      </visual>
+      <collision name="collision_LWheel">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.8" length="0.8"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_RWheel">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.04"/>
+        <inertia ixx="0.00853" ixy="0" ixz="0" iyy="0.00853" iyz="0" izz="0.0128"/>
+      </inertial>
+      <visual name="visual_RWheel">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.8" length="0.8"/>
+        </geometry>
+      </visual>
+      <collision name="collision_RWheel">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.8" length="0.8"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Sensor1">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.005"/>
+        <inertia ixx="0.00013" ixy="0" ixz="0" iyy="0.00013" iyz="0" izz="0.00013"/>
+      </inertial>
+      <visual name="visual_Sensor1">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Sensor1">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Sensor2">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.005"/>
+        <inertia ixx="0.00013" ixy="0" ixz="0" iyy="0.00013" iyz="0" izz="0.00013"/>
+      </inertial>
+      <visual name="visual_Sensor2">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Sensor2">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Sensor3">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.005"/>
+        <inertia ixx="0.00013" ixy="0" ixz="0" iyy="0.00013" iyz="0" izz="0.00013"/>
+      </inertial>
+      <visual name="visual_Sensor3">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Sensor3">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Sensor4">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.005"/>
+        <inertia ixx="0.00013" ixy="0" ixz="0" iyy="0.00013" iyz="0" izz="0.00013"/>
+      </inertial>
+      <visual name="visual_Sensor4">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Sensor4">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Sensor5">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.005"/>
+        <inertia ixx="0.00013" ixy="0" ixz="0" iyy="0.00013" iyz="0" izz="0.00013"/>
+      </inertial>
+      <visual name="visual_Sensor5">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Sensor5">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Sensor6">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.005"/>
+        <inertia ixx="0.00013" ixy="0" ixz="0" iyy="0.00013" iyz="0" izz="0.00013"/>
+      </inertial>
+      <visual name="visual_Sensor6">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Sensor6">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.4 0.4 0.4"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="link_Steer">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="0.001"/>
+        <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      </inertial>
+      <visual name="visual_Steer">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.2 0.2 0.2"/>
+        </geometry>
+      </visual>
+      <collision name="collision_Steer">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.2 0.2 0.2"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="link_FWheel" type="revolute">
+      <origin xyz="0 0 -0.9" rpy="0 1.5708 0"/>
+      <parent link="link_Steer"/>
+      <child link="link_FWheel"/>
+      <limit effort="0" velocity="0"/>
+      <axis xyz="0 0 1.0"/>
+    </joint>
+
+    <joint name="link_LWheel" type="revolute">
+      <origin xyz="2.54978 0.7 0" rpy="0 1.5708 0"/>
+      <parent link="link_Body"/>
+      <child link="link_LWheel"/>
+      <limit effort="0" velocity="0"/>
+      <axis xyz="0 0 1.0"/>
+    </joint>
+
+    <joint name="link_RWheel" type="revolute">
+      <origin xyz="-0.65022 0.7 0" rpy="0 1.5708 0"/>
+      <parent link="link_Body"/>
+      <child link="link_RWheel"/>
+      <limit effort="0" velocity="0"/>
+      <axis xyz="0 0 1.0"/>
+    </joint>
+
+    <joint name="link_Sensor1" type="fixed">
+      <origin xyz="2.69978 -2.7 0.2" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Sensor1"/>
+    </joint>
+
+    <joint name="link_Sensor2" type="fixed">
+      <origin xyz="1.99978 -2.7 0.2" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Sensor2"/>
+    </joint>
+
+    <joint name="link_Sensor3" type="fixed">
+      <origin xyz="1.29978 -2.7 0.2" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Sensor3"/>
+    </joint>
+
+    <joint name="link_Sensor4" type="fixed">
+      <origin xyz="0.59978 -2.7 0.2" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Sensor4"/>
+    </joint>
+
+    <joint name="link_Sensor5" type="fixed">
+      <origin xyz="-0.10022 -2.7 0.2" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Sensor5"/>
+    </joint>
+
+    <joint name="link_Sensor6" type="fixed">
+      <origin xyz="-0.80022 -2.7 0.2" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Sensor6"/>
+    </joint>
+
+    <joint name="link_Steer" type="revolute">
+      <origin xyz="0.94978 -2.1 0.35" rpy="0 0 0"/>
+      <parent link="link_Body"/>
+      <child link="link_Steer"/>
+      <limit effort="0" velocity="0"/>
+      <axis xyz="0 0 1.0"/>
+    </joint>
+
+  </robot>
