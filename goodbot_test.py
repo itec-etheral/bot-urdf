@@ -15,8 +15,6 @@ road.create_road()
 
 robot = Goodbot("goodbot.urdf", [0, 0, 1])
 
-robot.go_forward(20, 100)
-robot.turn_right()
 
 p.setRealTimeSimulation(1)
 
