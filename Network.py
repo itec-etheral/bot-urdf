@@ -110,12 +110,21 @@ class Network(object):
                                       self._output_network: np.transpose(output_nn)})
 
             # print accuracy
-            correct_prediction = tf.equal(tf.arg_max(tf.transpose(self._model_for_nn(keep_prob)), 1),
-                                          tf.arg_max(output_nn, 1))
-            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-            print("Accuracy: {}".format(accuracy.eval(feed_dict={self._input_network: np.transpose(input_nn),
-                                           self._output_network: np.transpose(output_nn)})))
+            # correct_prediction = tf.equal(tf.arg_max(tf.transpose(self._model_for_nn(keep_prob)), 1),
+            #                              tf.arg_max(output_nn, 1))
+            # accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+            # print("Accuracy: {}".format(accuracy.eval(feed_dict={self._input_network: np.transpose(input_nn),
+            #                               self._output_network: np.transpose(output_nn)})))
+
+            loss = tf.reduce_mean(self._loss(regularization_loss_step, keep_prob))
+
+            print("Loss: {}".format(loss.eval(feed_dict={self._input_network: np.transpose(input_nn),
+                                                         self._output_network: np.transpose(output_nn)})))
 
             # save weights
             self._np_weights = np.array(sess.run(self._weights))
             self._np_biases = np.array(sess.run(self._biases))
+
+    def print_loss(self, input_nn, output_nn):
+        loss = np.sum((np.transpose(np.array(output_nn)) - self.model_output(np.transpose(np.array(input_nn)))) ** 2) / len(input_nn)
+        print("PRINT LOSS: {}".format(loss))
