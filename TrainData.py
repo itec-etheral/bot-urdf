@@ -38,7 +38,7 @@ def get_train_weights():
 
     nn.print_loss(input_data, output_data)
 
-    return
+    return nn._np_weights, nn._np_biases
 
 
 
