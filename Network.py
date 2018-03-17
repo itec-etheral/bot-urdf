@@ -56,13 +56,11 @@ class Network(object):
 
     def model_output(self, input_model):
         # compute first layer
-        print("Y SHAPE: {}, WEIGHT SHAPE: {}, BIAS SHAPE: {}".format(input_model.shape, self._np_weights[0].shape, self._np_biases[0].shape))
         y = np.dot(self._np_weights[0], input_model) + self._np_biases[0]
 
 
         # compute all the other layers
         for step in range(1, self._num_layer - 1):
-            print("Y SHAPE: {}, WEIGHT SHAPE: {}, BIAS SHAPE: {}".format(y.shape, self._np_weights[step].shape, self._np_biases[step].shape))
             y = np.dot(self._np_weights[step], y) + self._np_biases[step]
 
             return y
@@ -113,16 +111,16 @@ class Network(object):
                                       self._output_network: np.transpose(output_nn)})
 
             # print accuracy
-            # correct_prediction = tf.equal(tf.arg_max(tf.transpose(self._model_for_nn(keep_prob)), 1),
-            #                              tf.arg_max(output_nn, 1))
-            # accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
-            # print("Accuracy: {}".format(accuracy.eval(feed_dict={self._input_network: np.transpose(input_nn),
-            #                               self._output_network: np.transpose(output_nn)})))
+            correct_prediction = tf.equal(tf.arg_max(tf.transpose(self._model_for_nn(keep_prob)), 1),
+                                         tf.arg_max(output_nn, 1))
+            accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+            print("Accuracy: {}".format(accuracy.eval(feed_dict={self._input_network: np.transpose(input_nn),
+                                          self._output_network: np.transpose(output_nn)})))
 
-            loss = tf.reduce_mean(self._loss(regularization_loss_step, keep_prob))
+            #loss = tf.reduce_mean(self._loss(regularization_loss_step, keep_prob))
 
-            print("Loss: {}".format(loss.eval(feed_dict={self._input_network: np.transpose(input_nn),
-                                                         self._output_network: np.transpose(output_nn)})))
+            #print("Loss: {}".format(loss.eval(feed_dict={self._input_network: np.transpose(input_nn),
+            #                                             self._output_network: np.transpose(output_nn)})))
 
             # save weights
             self._np_weights = np.array(sess.run(self._weights))

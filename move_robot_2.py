@@ -59,31 +59,28 @@ file = open('training_data.txt', 'a')
 #t = Timer(15.0, test)
 #t.start()
 
-nn = TrainData.get_train_weights()
+nn_direction, nn_velocity = TrainData.get_train_weights(100)
 
 print()
 
 while 1:
 
-    sensors_list = np.transpose(np.array(robot.get_output_sensor_for_near_road_points(road)[1:5]))
+    sensors_list = np.transpose(np.array([robot.get_output_sensor_for_near_road_points(road)[1:5]]))
 
     if sensors_list.shape[0] == 4:
-        output_sensor = np.transpose(nn.model_output(sensors_list))
-        if output_sensor is not None:
-            output_sensor = output_sensor[0]
-            print(output_sensor)
+        output_sensor_direction = np.transpose(nn_direction.model_output(sensors_list))[0]
+        output_sensor_velocity = np.transpose(nn_velocity.model_output(sensors_list))[0]
 
-            if output_sensor[0] + output_sensor[1] < - 0.3:
-                robot.turn_ahead()
-            elif output_sensor[0] > output_sensor [1]:
-                robot.turn_right()
-            elif output_sensor[0] < output_sensor [1]:
-                robot.turn_left()
 
-            if output_sensor[2] > output_sensor [3]:
-                robot.go_forward(velocity, force)
-            else:
-                robot.go_forward(-velocity, force)
+        if output_sensor_direction[0] > output_sensor_direction[1]:
+            robot.turn_right()
+        elif output_sensor_direction[0] < output_sensor_direction [1]:
+            robot.turn_left()
+
+        if output_sensor_velocity[0] > output_sensor_velocity [1]:
+            robot.go_forward(velocity, force)
+        else:
+            robot.go_forward(-velocity, force)
 
 
 
