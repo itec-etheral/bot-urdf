@@ -56,13 +56,16 @@ class Network(object):
 
     def model_output(self, input_model):
         # compute first layer
+        print("Y SHAPE: {}, WEIGHT SHAPE: {}, BIAS SHAPE: {}".format(input_model.shape, self._np_weights[0].shape, self._np_biases[0].shape))
         y = np.dot(self._np_weights[0], input_model) + self._np_biases[0]
+
 
         # compute all the other layers
         for step in range(1, self._num_layer - 1):
+            print("Y SHAPE: {}, WEIGHT SHAPE: {}, BIAS SHAPE: {}".format(y.shape, self._np_weights[step].shape, self._np_biases[step].shape))
             y = np.dot(self._np_weights[step], y) + self._np_biases[step]
 
-        return y
+            return y
 
     def _loss(self, regularization_loss_step, keep_prob):
         """

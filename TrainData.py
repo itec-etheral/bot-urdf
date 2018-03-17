@@ -22,23 +22,23 @@ def read_data(file_full_path: str) -> tuple:
     return input_list, output
 
 def get_train_weights():
-    nn = Network([4, 5, 4])
+    nn = Network([4, 6, 4])
 
     input_data, output_data = read_data('train_data1.txt')
 
-    for step in range(0, len(input_data), 5):
+    for step in range(0, len(input_data), 100):
         nn.session_train(0.2, 0.0000001, [0.8, 0.8], input_data[step:step+100], output_data[step:step+100])
 
     nn.print_loss(input_data, output_data)
 
     input_data, output_data = read_data('train_data2.txt')
 
-    for step in range(0, len(input_data), 5):
+    for step in range(0, len(input_data), 100):
         nn.session_train(0.2, 0.0000001, [0.8, 0.8], input_data[step:step+100], output_data[step:step+100])
 
     nn.print_loss(input_data, output_data)
 
-    return nn._np_weights, nn._np_biases
+    return nn
 
 
 

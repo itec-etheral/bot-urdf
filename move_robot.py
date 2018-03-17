@@ -2,8 +2,9 @@ import pybullet as p
 import pybullet_data
 from goodbot import Goodbot
 from Road import Road
-from threading import Timer
+import numpy as np
 from sensor_road_constants import Const
+import TrainData
 
 phyCl = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -58,9 +59,14 @@ file = open('training_data.txt', 'a')
 #t = Timer(15.0, test)
 #t.start()
 
+nn = TrainData.get_train_weights()
+
+print()
+
 while 1:
 
     sensors_list = robot.get_output_sensor_for_near_road_points(road)
+    output_sensor = np.transpose(nn.model_output(np.transpose(np.array(robot.get_output_sensor_for_near_road_points(road)[1:5]))))
 
     is_right = 0
     is_left = 0
@@ -100,24 +106,24 @@ while 1:
 
     out_li = [is_right, is_left, is_forward, is_backward]
 
-    print(sensors_list[1:5])
-    print(out_li)
+    # print(sensors_list[1:5])
+    # print(out_li)
 
     write_list = write_list + sensors_list[1:5] + out_li
-    print(write_list)
+    # print(write_list)
 
     save_length += 1
-    print(save_length)
+    # print(save_length)
 
     if(save_length >= 100):
         temp_str2= ''
-        print('SAVING...')
+        # print('SAVING...')
         for i in range(0, 8*100, 8): # range(x, y, z) -> y = nr of outputs * 100, z = nr of outputs
             temp_str = ''
             for j in range(8): # range(x) -> x = nr of outputs
                 temp_str += ((str(write_list[i+j]) + '\n') if not (j == 0) and (j % 7 == 0) else str(write_list[i+j]) + ' ') # change the 7 to nr of outputs - 1
             temp_str2 += temp_str
-        print('SAVED')
-        print(temp_str2, file=file)
+        # print('SAVED')
+        # print(temp_str2, file=file)
         save_length = 0
         write_list = []

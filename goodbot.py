@@ -79,11 +79,11 @@ class Goodbot(URDFObject):
 			distance_on_y_axis = self._sensors[2].get_position()[1] - road_point_pos[1]
 			distance = (distance_on_x_axis**2 + distance_on_y_axis**2) ** 0.5
 
-			if distance <= 0.472269:  # empiric number that works just fine (the error it is so big cuz we check
+			if distance <= 0.475:  # empiric number that works just fine (the error it is so big cuz we check
 				# the distance with the second sensor position that it usually it is not exactly on top of the line
 				# and we compute both x and y axis that both will never be exactly on the line
 				return self.get_sensors_response(road_point_pos, attach=False)
 
-		return None
+		return [1, 1, 1, 1]
 
 	
